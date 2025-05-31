@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Star, ShoppingCart, Heart } from 'lucide-react';
+import { ShoppingCart } from 'lucide-react';
 
 const ProductCard = ({ product, index }) => {
   return (
@@ -18,32 +18,16 @@ const ProductCard = ({ product, index }) => {
             Out of Stock
           </div>
         )}
-        
-        <button className="absolute top-4 right-4 p-2 text-ocean-blue-400 hover:text-red-500 transition-colors">
-          <Heart className="w-5 h-5" />
-        </button>
       </div>
       
       <div className="p-6">
-        <h4 className="text-2xl font-playfair font-bold text-golden-600 mb-2 group-hover:text-golden-700 transition-colors">
+        <div className="text-sm text-ocean-blue-500 mb-2 font-medium">
+          Krivetka.am
+        </div>
+        
+        <h4 className="text-2xl font-playfair font-bold text-golden-600 mb-4 group-hover:text-golden-700 transition-colors">
           {product.name}
         </h4>
-        
-        <p className="text-ocean-blue-600 mb-4 text-sm leading-relaxed">
-          {product.description}
-        </p>
-        
-        <div className="flex items-center mb-4">
-          <div className="flex text-golden-500 mr-2">
-            {[1,2,3,4,5].map(i => (
-              <Star 
-                key={i} 
-                className={`w-4 h-4 ${i <= Math.floor(product.rating) ? 'fill-current' : ''}`} 
-              />
-            ))}
-          </div>
-          <span className="text-ocean-blue-600 text-sm font-medium">({product.rating})</span>
-        </div>
         
         <div className="flex items-center justify-between">
           <div className="text-3xl font-bold text-ocean-blue-800">
