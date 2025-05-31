@@ -1,8 +1,17 @@
 
 import React from 'react';
 import { ShoppingCart } from 'lucide-react';
+import { useCart } from '../contexts/CartContext';
 
 const ProductCard = ({ product, index }) => {
+  const { addToCart } = useCart();
+
+  const handleAddToCart = () => {
+    if (product.inStock) {
+      addToCart(product);
+    }
+  };
+
   return (
     <div 
       className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 animate-fade-in overflow-hidden group"
@@ -36,6 +45,7 @@ const ProductCard = ({ product, index }) => {
           </div>
           
           <button 
+            onClick={handleAddToCart}
             className={`flex items-center px-4 py-2 rounded-full font-medium transition-all duration-300 ${
               product.inStock 
                 ? 'bg-gradient-to-r from-golden-500 to-golden-600 text-white hover:from-golden-600 hover:to-golden-700 transform hover:scale-105' 

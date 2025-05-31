@@ -1,9 +1,11 @@
 
 import React, { useState } from 'react';
 import { ShoppingCart, Menu, X, Search } from 'lucide-react';
+import { useCart } from '../contexts/CartContext';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { getTotalItems } = useCart();
 
   return (
     <header className="bg-white/90 backdrop-blur-md shadow-lg sticky top-0 z-50">
@@ -14,7 +16,7 @@ const Header = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-ocean-blue-500 to-ocean-blue-700 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-lg">🌊</span>
             </div>
-            <h1 className="text-2xl font-playfair font-bold text-ocean-blue-800">Ocean Fresh</h1>
+            <a href="/" className="text-2xl font-playfair font-bold text-ocean-blue-800">Ocean Fresh</a>
           </div>
 
           {/* Search and Cart */}
@@ -27,10 +29,17 @@ const Header = () => {
                 className="bg-transparent outline-none text-ocean-blue-700 placeholder-ocean-blue-400"
               />
             </div>
-            <button className="relative p-2 bg-golden-500 text-white rounded-full hover:bg-golden-600 transition-colors">
+            <a 
+              href="/cart"
+              className="relative p-2 bg-golden-500 text-white rounded-full hover:bg-golden-600 transition-colors"
+            >
               <ShoppingCart className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
-            </button>
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
+            </a>
           </div>
         </div>
       </div>
