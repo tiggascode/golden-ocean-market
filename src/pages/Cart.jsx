@@ -1,12 +1,13 @@
-
 import React from 'react';
 import { useCart } from '../contexts/CartContext';
-import { Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
+import { Minus, Plus, Trash2, ShoppingBag, Phone } from 'lucide-react';
 import Header from '../components/Header';
 
 const Cart = () => {
   const { cartItems, updateQuantity, removeFromCart, getTotalPrice, clearCart } = useCart();
-
+  const formatPrice = (price) => {
+    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  };
   if (cartItems.length === 0) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-ocean-blue-50 via-white to-ocean-blue-100">
@@ -39,25 +40,25 @@ const Cart = () => {
         <h1 className="text-4xl font-playfair font-bold text-ocean-blue-800 mb-8">
           Shopping Cart
         </h1>
-        
+
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl shadow-lg p-6">
               {cartItems.map(item => (
                 <div key={item.id} className="flex items-center py-6 border-b border-gray-200 last:border-b-0">
                   <div className="text-4xl mr-4">{item.image}</div>
-                  
+
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-ocean-blue-800 mb-2">
                       {item.name}
                     </h3>
                     <p className="text-ocean-blue-500 text-sm mb-2">Krivetka.am</p>
                     <p className="text-2xl font-bold text-ocean-blue-800">
-                      ${item.price}
+                      {formatPrice(item.price)}֏
                       <span className="text-sm font-normal text-ocean-blue-500 ml-1">/lb</span>
                     </p>
                   </div>
-                  
+
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center border border-gray-300 rounded-lg">
                       <button
@@ -74,7 +75,7 @@ const Cart = () => {
                         <Plus className="w-4 h-4" />
                       </button>
                     </div>
-                    
+
                     <button
                       onClick={() => removeFromCart(item.id)}
                       className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
@@ -86,38 +87,39 @@ const Cart = () => {
               ))}
             </div>
           </div>
-          
+
           <div className="lg:col-span-1">
             <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
               <h2 className="text-2xl font-playfair font-bold text-ocean-blue-800 mb-6">
                 Order Summary
               </h2>
-              
+
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between">
                   <span className="text-ocean-blue-600">Subtotal:</span>
                   <span className="font-semibold text-ocean-blue-800">
-                    ${getTotalPrice().toFixed(2)}
+                    {formatPrice(getTotalPrice())}֏
                   </span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-ocean-blue-600">Shipping:</span>
-                  <span className="font-semibold text-ocean-blue-800">Free</span>
+                  <span className="font-semibold text-ocean-blue-800"> {formatPrice(1000)}֏</span>
                 </div>
                 <div className="border-t pt-4">
                   <div className="flex justify-between text-xl font-bold">
                     <span className="text-ocean-blue-800">Total:</span>
                     <span className="text-golden-600">
-                      ${getTotalPrice().toFixed(2)}
+                      {formatPrice(getTotalPrice() + 1000)}֏
                     </span>
                   </div>
                 </div>
               </div>
-              
-              <button className="w-full bg-gradient-to-r from-golden-500 to-golden-600 text-white py-4 rounded-full font-semibold text-lg hover:from-golden-600 hover:to-golden-700 transition-all duration-300 transform hover:scale-105 mb-4">
-                Proceed to Checkout
-              </button>
-              
+
+              <div className="flex items-center justify-center space-x-2 bg-gradient-to-r from-golden-500 to-golden-600 text-white py-4 rounded-full font-semibold text-lg mb-4">
+                <Phone className="w-5 h-5" />
+                <span>+374 91 123456</span>
+              </div>
+
               <button
                 onClick={clearCart}
                 className="w-full border border-red-300 text-red-600 py-3 rounded-full font-semibold hover:bg-red-50 transition-colors"

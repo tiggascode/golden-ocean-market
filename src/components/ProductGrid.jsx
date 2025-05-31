@@ -7,7 +7,7 @@ const ProductGrid = () => {
     {
       id: 1,
       name: "Atlantic Salmon",
-      price: 24.99,
+      price: 15000,
       image: "🍣",
       description: "Fresh wild-caught Atlantic salmon, perfect for grilling",
       rating: 4.9,
@@ -16,7 +16,7 @@ const ProductGrid = () => {
     {
       id: 2,
       name: "Jumbo Shrimp",
-      price: 32.99,
+      price: 32000,
       image: "🦐",
       description: "Premium jumbo shrimp, sustainably sourced",
       rating: 4.8,
@@ -25,7 +25,7 @@ const ProductGrid = () => {
     {
       id: 3,
       name: "Maine Lobster",
-      price: 89.99,
+      price: 69999,
       image: "🦞",
       description: "Live Maine lobster, the ultimate luxury seafood",
       rating: 5.0,
@@ -34,7 +34,7 @@ const ProductGrid = () => {
     {
       id: 4,
       name: "Blue Crab",
-      price: 45.99,
+      price: 45999,
       image: "🦀",
       description: "Fresh blue crab from the Chesapeake Bay",
       rating: 4.7,
@@ -43,7 +43,7 @@ const ProductGrid = () => {
     {
       id: 5,
       name: "Sea Scallops",
-      price: 28.99,
+      price: 28999,
       image: "🥟",
       description: "Dry-packed sea scallops, restaurant quality",
       rating: 4.9,
@@ -52,7 +52,7 @@ const ProductGrid = () => {
     {
       id: 6,
       name: "Yellowfin Tuna",
-      price: 56.99,
+      price: 56999,
       image: "🍤",
       description: "Sashimi-grade yellowfin tuna, perfect for sushi",
       rating: 4.8,
@@ -61,7 +61,7 @@ const ProductGrid = () => {
     {
       id: 7,
       name: "King Crab Legs",
-      price: 129.99,
+      price: 12999,
       image: "🦀",
       description: "Alaskan king crab legs, sweet and succulent",
       rating: 5.0,
@@ -70,7 +70,7 @@ const ProductGrid = () => {
     {
       id: 8,
       name: "Fresh Oysters",
-      price: 18.99,
+      price: 18999,
       image: "🦪",
       description: "Fresh oysters from the Pacific Northwest",
       rating: 4.6,
@@ -89,12 +89,12 @@ const ProductGrid = () => {
             Handpicked from the finest waters around the world, each product meets our exceptional standards for freshness and quality
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {products.map((product, index) => (
-            <ProductCard 
-              key={product.id} 
-              product={product} 
+            <ProductCard
+              key={product.id}
+              product={product}
               index={index}
             />
           ))}

@@ -16,20 +16,13 @@ const Header = () => {
             <div className="w-10 h-10 bg-gradient-to-br from-ocean-blue-500 to-ocean-blue-700 rounded-full flex items-center justify-center">
               <span className="text-white font-bold text-lg">🌊</span>
             </div>
-            <a href="/" className="text-2xl font-playfair font-bold text-ocean-blue-800">Ocean Fresh</a>
+            <a href="/" className="text-2xl font-playfair font-bold text-ocean-blue-800">Krivetka.am</a>
           </div>
 
           {/* Search and Cart */}
           <div className="flex items-center space-x-4">
-            <div className="hidden sm:flex items-center bg-ocean-blue-50 rounded-full px-4 py-2">
-              <Search className="w-4 h-4 text-ocean-blue-400 mr-2" />
-              <input 
-                type="text" 
-                placeholder="Search seafood..." 
-                className="bg-transparent outline-none text-ocean-blue-700 placeholder-ocean-blue-400"
-              />
-            </div>
-            <a 
+
+            <a
               href="/cart"
               className="relative p-2 bg-golden-500 text-white rounded-full hover:bg-golden-600 transition-colors"
             >
