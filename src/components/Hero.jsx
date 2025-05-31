@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, Star } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -22,23 +22,6 @@ const Hero = () => {
             <button className="border-2 border-ocean-blue-300 text-ocean-blue-700 px-8 py-4 rounded-full font-semibold text-lg hover:bg-ocean-blue-50 transition-colors">
               Learn More
             </button>
-          </div>
-
-          <div className="flex justify-center items-center space-x-8 text-ocean-blue-600">
-            <div className="flex items-center">
-              <div className="flex text-golden-500 mr-2">
-                {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
-              </div>
-              <span className="font-medium">4.9/5 Rating</span>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-ocean-blue-800">1000+</div>
-              <div className="text-sm">Happy Customers</div>
-            </div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-ocean-blue-800">24h</div>
-              <div className="text-sm">Fresh Delivery</div>
-            </div>
           </div>
         </div>
       </div>
