@@ -1,11 +1,20 @@
 
 import React, { useState } from 'react';
-import { ShoppingCart, Search } from 'lucide-react';
+import { ShoppingCart, Search, Menu, X } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 
 const Header = () => {
   const [isSearchFocused, setIsSearchFocused] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { getTotalItems } = useCart();
+
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMobileMenuOpen(false);
+  };
 
   return (
     <header className="bg-premium-onyx-900/95 backdrop-blur-md shadow-2xl sticky top-0 z-50 border-b border-premium-gold-500/20">
@@ -27,8 +36,33 @@ const Header = () => {
             </a>
           </div>
 
+          {/* Premium Navigation - Desktop */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            <button
+              onClick={() => scrollToSection('products')}
+              className="text-premium-pearl-300 hover:text-premium-gold-400 font-medium transition-colors duration-300 relative group"
+            >
+              Products
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-premium-gold-400 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className="text-premium-pearl-300 hover:text-premium-gold-400 font-medium transition-colors duration-300 relative group"
+            >
+              About Us
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-premium-gold-400 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className="text-premium-pearl-300 hover:text-premium-gold-400 font-medium transition-colors duration-300 relative group"
+            >
+              Contact
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-premium-gold-400 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+          </nav>
+
           {/* Premium Search & Cart */}
-          <div className="flex items-center space-x-8">
+          <div className="flex items-center space-x-4">
             {/* Luxury Search Bar */}
             <div className={`relative hidden md:block transition-all duration-300 ${isSearchFocused ? 'scale-105' : ''}`}>
               <div className="relative">
@@ -48,6 +82,14 @@ const Header = () => {
               </div>
             </div>
 
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="lg:hidden p-2 text-premium-gold-400 hover:text-premium-gold-300 transition-colors"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+
             {/* Premium Cart Button */}
             <a
               href="/cart"
@@ -65,6 +107,32 @@ const Header = () => {
             </a>
           </div>
         </div>
+
+        {/* Mobile Navigation Menu */}
+        {isMobileMenuOpen && (
+          <div className="lg:hidden mt-4 bg-premium-onyx-800/95 backdrop-blur-md rounded-xl border border-premium-gold-500/20 p-4 animate-fade-in">
+            <nav className="flex flex-col space-y-4">
+              <button
+                onClick={() => scrollToSection('products')}
+                className="text-premium-pearl-300 hover:text-premium-gold-400 font-medium transition-colors duration-300 text-left"
+              >
+                Products
+              </button>
+              <button
+                onClick={() => scrollToSection('about')}
+                className="text-premium-pearl-300 hover:text-premium-gold-400 font-medium transition-colors duration-300 text-left"
+              >
+                About Us
+              </button>
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="text-premium-pearl-300 hover:text-premium-gold-400 font-medium transition-colors duration-300 text-left"
+              >
+                Contact
+              </button>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );

@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ShoppingCart, Plus, Minus, Star } from 'lucide-react';
+import { ShoppingCart, Plus, Minus } from 'lucide-react';
 import { useCart } from '../contexts/CartContext';
 import { useNavigate } from 'react-router-dom';
 
@@ -75,15 +75,6 @@ const ProductCard = ({ product }) => {
               🔥 -{product.discount}% OFF
             </span>
           )}
-          <span className="px-4 py-2 bg-premium-onyx-900/90 text-premium-gold-400 text-sm font-medium rounded-full backdrop-blur-sm border border-premium-gold-500/20">
-            Premium Quality
-          </span>
-        </div>
-
-        {/* Luxury rating display */}
-        <div className="absolute top-6 right-6 flex items-center gap-1 bg-premium-onyx-900/90 px-3 py-2 rounded-full backdrop-blur-sm border border-premium-gold-500/20">
-          <Star className="w-4 h-4 text-premium-gold-400 fill-current" />
-          <span className="text-premium-gold-400 text-sm font-medium">4.9</span>
         </div>
 
         {/* Premium add to cart section */}
@@ -157,10 +148,6 @@ const ProductCard = ({ product }) => {
           <span className="text-premium-pearl-400 text-sm font-medium">
             {product.stock} in stock
           </span>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 bg-premium-emerald-400 rounded-full"></div>
-            <span className="text-premium-emerald-400 text-sm font-medium">Fresh Today</span>
-          </div>
         </div>
       </div>
     </div>

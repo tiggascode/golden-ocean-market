@@ -9,16 +9,51 @@ const Cart = () => {
   const { cartItems, removeFromCart, updateQuantity, getTotalPrice } = useCart();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-premium-onyx-900 via-premium-sapphire-900 to-premium-onyx-800">
+    <div className="min-h-screen bg-gradient-to-br from-black via-gray-950 to-black relative overflow-hidden">
+      {/* Premium 3D Background Elements */}
+      <div className="absolute inset-0">
+        {/* Floating 3D geometric shapes */}
+        <div className="absolute top-20 left-10 w-64 h-64 opacity-5 animate-float">
+          <div className="w-full h-full bg-gradient-to-br from-premium-gold-500/20 to-premium-gold-600/10 rounded-full blur-3xl transform rotate-45 scale-75"></div>
+        </div>
+        <div className="absolute top-40 right-20 w-48 h-48 opacity-10 animate-float" style={{ animationDelay: '2s' }}>
+          <div className="w-full h-full bg-gradient-to-tl from-premium-gold-400/15 to-transparent rounded-full blur-2xl"></div>
+        </div>
+        <div className="absolute bottom-32 left-1/4 w-32 h-32 opacity-15 animate-float" style={{ animationDelay: '4s' }}>
+          <div className="w-full h-full bg-premium-gold-500/20 rounded-full blur-xl"></div>
+        </div>
+        
+        {/* 3D Grid Pattern */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="h-full w-full" style={{
+            backgroundImage: `
+              linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: '100px 100px',
+            transform: 'perspective(1000px) rotateX(60deg) rotateY(-15deg)',
+            transformOrigin: 'center center'
+          }}></div>
+        </div>
+        
+        {/* Premium depth layers */}
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30"></div>
+        
+        {/* Luxury light rays */}
+        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-px h-full bg-gradient-to-b from-premium-gold-400/30 via-premium-gold-500/10 to-transparent"></div>
+        <div className="absolute top-1/2 left-0 transform -translate-y-1/2 w-full h-px bg-gradient-to-r from-transparent via-premium-gold-400/20 to-transparent"></div>
+      </div>
+      
+      {/* Premium texture overlay */}
+      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay"></div>
+
       <Header />
 
-      <div className="container mx-auto px-4 py-16 relative">
-        {/* Premium texture overlay */}
-        <div className="absolute inset-0 bg-[url('/noise.png')] opacity-5"></div>
-        
+      <div className="container mx-auto px-4 py-16 relative z-10">
         {/* Premium page header */}
-        <div className="text-center mb-12 relative z-10">
-          <div className="inline-flex items-center px-6 py-2 bg-premium-gold-500/10 border border-premium-gold-500/20 rounded-full mb-6">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center px-6 py-2 bg-premium-gold-500/10 border border-premium-gold-500/20 rounded-full mb-6 backdrop-blur-md">
             <Crown className="w-4 h-4 text-premium-gold-400 mr-2" />
             <span className="text-premium-gold-400 text-sm font-medium tracking-wider uppercase">
               Luxury Cart
@@ -35,9 +70,9 @@ const Cart = () => {
         </div>
 
         {cartItems.length === 0 ? (
-          <div className="text-center py-20 relative z-10">
+          <div className="text-center py-20">
             <div className="max-w-md mx-auto">
-              <div className="w-24 h-24 bg-gradient-to-br from-premium-gold-500/20 to-premium-gold-600/20 rounded-full flex items-center justify-center mx-auto mb-8 border border-premium-gold-500/30">
+              <div className="w-24 h-24 bg-gradient-to-br from-premium-gold-500/20 to-premium-gold-600/20 rounded-full flex items-center justify-center mx-auto mb-8 border border-premium-gold-500/30 backdrop-blur-md">
                 <Crown className="w-12 h-12 text-premium-gold-400" />
               </div>
               <h2 className="text-2xl font-playfair font-bold text-premium-pearl-50 mb-4">
@@ -48,14 +83,14 @@ const Cart = () => {
               </p>
               <a
                 href="/"
-                className="inline-block px-10 py-4 bg-gradient-to-r from-premium-gold-500 to-premium-gold-600 hover:from-premium-gold-600 hover:to-premium-gold-700 text-premium-onyx-900 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl"
+                className="inline-block px-10 py-4 bg-gradient-to-r from-premium-gold-500 to-premium-gold-600 hover:from-premium-gold-600 hover:to-premium-gold-700 text-premium-onyx-900 font-bold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-2xl ring-4 ring-premium-gold-500/20 hover:ring-premium-gold-500/40"
               >
                 Explore Premium Collection
               </a>
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Premium Cart Items */}
             <div className="lg:col-span-2 space-y-6">
               {cartItems.map((item) => (
@@ -185,7 +220,7 @@ const Cart = () => {
                 </div>
 
                 {/* Premium contact section */}
-                <div className="bg-gradient-to-r from-premium-gold-500/20 to-premium-gold-600/20 border border-premium-gold-500/30 rounded-xl p-6">
+                <div className="bg-gradient-to-r from-premium-gold-500/20 to-premium-gold-600/20 border border-premium-gold-500/30 rounded-xl p-6 backdrop-blur-md">
                   <div className="text-center">
                     <div className="w-12 h-12 bg-gradient-to-br from-premium-gold-500 to-premium-gold-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <Phone className="w-6 h-6 text-premium-onyx-900" />
