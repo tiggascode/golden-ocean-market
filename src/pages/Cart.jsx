@@ -1,135 +1,129 @@
 import React from 'react';
 import { useCart } from '../contexts/CartContext';
-import { Minus, Plus, Trash2, ShoppingBag, Phone } from 'lucide-react';
+import { Trash2, Plus, Minus, Phone } from 'lucide-react';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Cart = () => {
-  const { cartItems, updateQuantity, removeFromCart, getTotalPrice, clearCart } = useCart();
-  const formatPrice = (price) => {
-    return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  };
-  if (cartItems.length === 0) {
-    return (
-      <div className="min-h-screen bg-gradient-to-br from-ocean-blue-50 via-white to-ocean-blue-100">
-        <Header />
-        <div className="container mx-auto px-4 py-16">
-          <div className="text-center">
-            <ShoppingBag className="w-24 h-24 mx-auto text-ocean-blue-300 mb-8" />
-            <h2 className="text-3xl font-playfair font-bold text-ocean-blue-800 mb-4">
-              Your cart is empty
-            </h2>
-            <p className="text-ocean-blue-600 mb-8">
-              Add some delicious seafood to get started!
-            </p>
+  const { cartItems, removeFromCart, updateQuantity, getTotalPrice } = useCart();
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-premium-onyx-900 via-premium-sapphire-900 to-premium-onyx-800">
+      <Header />
+
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="text-4xl font-playfair font-bold text-premium-pearl-50 mb-8 text-center">
+          Your Cart
+        </h1>
+
+        {cartItems.length === 0 ? (
+          <div className="text-center py-12">
+            <p className="text-premium-pearl-300 text-xl mb-4">Your cart is empty</p>
             <a
               href="/"
-              className="bg-gradient-to-r from-golden-500 to-golden-600 text-white px-8 py-4 rounded-full font-semibold text-lg hover:from-golden-600 hover:to-golden-700 transition-all duration-300 transform hover:scale-105"
+              className="inline-block px-8 py-4 bg-premium-gold-500 hover:bg-premium-gold-600 text-premium-onyx-900 font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
             >
               Continue Shopping
             </a>
           </div>
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-ocean-blue-50 via-white to-ocean-blue-100">
-      <Header />
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-playfair font-bold text-ocean-blue-800 mb-8">
-          Shopping Cart
-        </h1>
-
-        <div className="grid lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              {cartItems.map(item => (
-                <div key={item.id} className="flex items-center py-6 border-b border-gray-200 last:border-b-0">
-                  <div className="text-4xl mr-4">{item.image}</div>
-
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-ocean-blue-800 mb-2">
-                      {item.name}
-                    </h3>
-                    <p className="text-ocean-blue-500 text-sm mb-2">Krivetka.am</p>
-                    <p className="text-2xl font-bold text-ocean-blue-800">
-                      {formatPrice(item.price)}֏
-                      <span className="text-sm font-normal text-ocean-blue-500 ml-1">/lb</span>
-                    </p>
-                  </div>
-
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center border border-gray-300 rounded-lg">
-                      <button
-                        onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="p-2 hover:bg-gray-100 transition-colors"
-                      >
-                        <Minus className="w-4 h-4" />
-                      </button>
-                      <span className="px-4 py-2 font-semibold">{item.quantity}</span>
-                      <button
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="p-2 hover:bg-gray-100 transition-colors"
-                      >
-                        <Plus className="w-4 h-4" />
-                      </button>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Cart Items */}
+            <div className="lg:col-span-2 space-y-4">
+              {cartItems.map((item) => (
+                <div
+                  key={item.id}
+                  className="bg-premium-onyx-800/50 rounded-xl overflow-hidden border border-premium-gold-500/10 hover:border-premium-gold-500/30 transition-all duration-300"
+                >
+                  <div className="p-6 flex items-center gap-6">
+                    {/* Product Image */}
+                    <div className="w-24 h-24 rounded-lg overflow-hidden flex-shrink-0">
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover"
+                      />
                     </div>
 
-                    <button
-                      onClick={() => removeFromCart(item.id)}
-                      className="p-2 text-red-500 hover:bg-red-50 rounded-lg transition-colors"
-                    >
-                      <Trash2 className="w-5 h-5" />
-                    </button>
+                    {/* Product Info */}
+                    <div className="flex-grow">
+                      <h3 className="text-xl font-playfair font-bold text-premium-pearl-50 mb-2">
+                        {item.name}
+                      </h3>
+                      <p className="text-premium-pearl-300 text-sm mb-4 line-clamp-2">
+                        {item.description}
+                      </p>
+
+                      {/* Price and Quantity */}
+                      <div className="flex items-center justify-between">
+                        <div className="text-premium-gold-400 font-bold">
+                          ${item.price.toFixed(2)}
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                          <div className="flex items-center gap-2 bg-premium-onyx-900/50 px-3 py-1 rounded-full">
+                            <button
+                              onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                              className="p-1 rounded-full bg-premium-gold-500/20 hover:bg-premium-gold-500/30 text-premium-gold-400 transition-colors"
+                            >
+                              <Minus className="w-4 h-4" />
+                            </button>
+                            <span className="text-premium-pearl-50 font-medium min-w-[20px] text-center">
+                              {item.quantity}
+                            </span>
+                            <button
+                              onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                              className="p-1 rounded-full bg-premium-gold-500/20 hover:bg-premium-gold-500/30 text-premium-gold-400 transition-colors"
+                            >
+                              <Plus className="w-4 h-4" />
+                            </button>
+                          </div>
+                          <button
+                            onClick={() => removeFromCart(item.id)}
+                            className="p-2 text-premium-ruby-400 hover:text-premium-ruby-300 transition-colors mt-2"
+                          >
+                            <Trash2 className="w-5 h-5" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
-          </div>
 
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-2xl shadow-lg p-6 sticky top-24">
-              <h2 className="text-2xl font-playfair font-bold text-ocean-blue-800 mb-6">
-                Order Summary
-              </h2>
+            {/* Order Summary */}
+            <div className="lg:col-span-1">
+              <div className="bg-premium-onyx-800/50 rounded-xl p-6 border border-premium-gold-500/10">
+                <h2 className="text-2xl font-playfair font-bold text-premium-pearl-50 mb-6">
+                  Order Summary
+                </h2>
 
-              <div className="space-y-4 mb-6">
-                <div className="flex justify-between">
-                  <span className="text-ocean-blue-600">Subtotal:</span>
-                  <span className="font-semibold text-ocean-blue-800">
-                    {formatPrice(getTotalPrice())}֏
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-ocean-blue-600">Shipping:</span>
-                  <span className="font-semibold text-ocean-blue-800"> {formatPrice(1000)}֏</span>
-                </div>
-                <div className="border-t pt-4">
-                  <div className="flex justify-between text-xl font-bold">
-                    <span className="text-ocean-blue-800">Total:</span>
-                    <span className="text-golden-600">
-                      {formatPrice(getTotalPrice() + 1000)}֏
-                    </span>
+                <div className="space-y-4 mb-6">
+                  <div className="flex justify-between text-premium-pearl-300">
+                    <span>Subtotal</span>
+                    <span>${getTotalPrice().toFixed(2)}</span>
+                  </div>
+                  <div className="flex justify-between text-premium-pearl-300">
+                    <span>Shipping</span>
+                    <span>Free</span>
+                  </div>
+                  <div className="h-px bg-premium-gold-500/20 my-4"></div>
+                  <div className="flex justify-between text-premium-pearl-50 font-bold">
+                    <span>Total</span>
+                    <span>${getTotalPrice().toFixed(2)}</span>
                   </div>
                 </div>
-              </div>
 
-              <div className="flex items-center justify-center space-x-2 bg-gradient-to-r from-golden-500 to-golden-600 text-white py-4 rounded-full font-semibold text-lg mb-4">
-                <Phone className="w-5 h-5" />
-                <span>+374 91 123456</span>
+                <div className="flex items-center justify-center space-x-2 bg-premium-gold-500/20 text-premium-gold-400 py-4 rounded-lg font-semibold">
+                  <Phone className="w-5 h-5" />
+                  <span>+374 94616939</span>
+                </div>
               </div>
-
-              <button
-                onClick={clearCart}
-                className="w-full border border-red-300 text-red-600 py-3 rounded-full font-semibold hover:bg-red-50 transition-colors"
-              >
-                Clear Cart
-              </button>
             </div>
           </div>
-        </div>
+        )}
       </div>
+
     </div>
   );
 };
