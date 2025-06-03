@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Link } from '@inertiajs/react';
 
 const Hero = () => {
   const scrollToSection = (sectionId) => {
