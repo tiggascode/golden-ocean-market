@@ -6,12 +6,12 @@ import Footer from '../components/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-black relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-premium-sapphire-800 via-premium-sapphire-750 to-premium-sapphire-800 relative overflow-hidden">
       {/* Enhanced 3D Background with Apple-inspired premium effects */}
       <div className="fixed inset-0 z-0">
-        {/* Deep black gradient foundation */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-950 to-black"></div>
-        
+        {/* Deep blue gradient foundation */}
+        <div className="absolute inset-0 bg-gradient-to-br from-premium-sapphire-800 via-premium-sapphire-750 to-premium-sapphire-800"></div>
+
         {/* 3D geometric grid overlay */}
         <div className="absolute inset-0 opacity-5">
           <div className="h-full w-full" style={{
@@ -24,24 +24,24 @@ const Index = () => {
             backgroundSize: '400px 400px, 600px 600px, 80px 80px, 80px 80px'
           }}></div>
         </div>
-        
+
         {/* Premium 3D depth layers */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black"></div>
-        
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/15 to-black/40"></div>
+
         {/* Apple-style floating orbs with 3D depth */}
         <div className="absolute top-1/4 left-1/6 w-96 h-96 bg-gradient-to-br from-premium-gold-500/10 to-premium-gold-600/5 rounded-full blur-3xl animate-float opacity-60"></div>
         <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-gradient-to-tl from-premium-gold-400/8 to-transparent rounded-full blur-2xl animate-float opacity-40" style={{ animationDelay: '3s' }}></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-premium-gold-500/5 via-premium-gold-400/10 to-premium-gold-500/5 rounded-full blur-3xl animate-float opacity-30" style={{ animationDelay: '6s' }}></div>
-        
+
         {/* Premium light beams */}
         <div className="absolute top-0 left-1/3 w-px h-full bg-gradient-to-b from-premium-gold-400/20 via-premium-gold-500/5 to-transparent"></div>
         <div className="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-premium-gold-300/15 via-premium-gold-400/3 to-transparent"></div>
-        
+
         {/* Subtle noise texture for premium feel */}
         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
       </div>
-      
+
       {/* Content with enhanced z-indexing */}
       <div className="relative z-10">
         <Header />
@@ -51,9 +51,9 @@ const Index = () => {
         <section id="products" className="py-24 px-4 relative">
           {/* Section-specific 3D background elements */}
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/80"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/60"></div>
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-premium-gold-500/60 to-transparent shadow-lg shadow-premium-gold-500/30"></div>
-            
+
             {/* 3D geometric accents */}
             <div className="absolute top-20 left-20 w-40 h-40 opacity-5 transform rotate-45 animate-float">
               <div className="w-full h-full bg-gradient-to-br from-premium-gold-500/30 to-transparent rounded-3xl blur-xl"></div>
@@ -62,7 +62,7 @@ const Index = () => {
               <div className="w-full h-full bg-gradient-to-tl from-premium-gold-400/20 to-transparent rounded-2xl blur-lg"></div>
             </div>
           </div>
-          
+
           <div className="container mx-auto relative z-10">
             {/* Premium section header with 3D effects */}
             <div className="text-center mb-16">
@@ -71,7 +71,7 @@ const Index = () => {
                   Curated Collection
                 </span>
               </div>
-              
+
               <h2 className="text-5xl md:text-6xl font-playfair font-bold mb-6 relative">
                 <span className="bg-gradient-to-r from-premium-gold-300 via-premium-gold-400 to-premium-gold-500 bg-clip-text text-transparent" style={{
                   textShadow: '0 0 30px rgba(212, 175, 55, 0.3)'
@@ -81,24 +81,44 @@ const Index = () => {
                 <br />
                 <span className="text-white drop-shadow-xl">Selection</span>
               </h2>
-              
+
               <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Each product in our exclusive collection represents the pinnacle of oceanic luxury, 
+                Each product in our exclusive collection represents the pinnacle of oceanic luxury,
                 handpicked from the world's most pristine waters.
               </p>
             </div>
-            
+
             <ProductGrid />
           </div>
         </section>
 
         {/* Premium About Section with enhanced depth */}
-        <section id="about" className="py-24 px-4 bg-gradient-to-b from-black/60 via-gray-950/80 to-black relative">
+        <section id="about" className="py-24 px-4 relative">
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02]"></div>
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-r from-premium-gold-500/5 to-premium-gold-400/8 rounded-full blur-3xl"></div>
+            {/* Deep blue gradient foundation */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#1a4a6f] via-[#1f5a8f] to-[#1a4a6f]"></div>
+
+            {/* 3D geometric grid overlay */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="h-full w-full" style={{
+                backgroundImage: `
+                  radial-gradient(circle at 25% 25%, rgba(212, 175, 55, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 75% 75%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                  linear-gradient(rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(212, 175, 55, 0.05) 1px, transparent 1px)
+                `,
+                backgroundSize: '400px 400px, 600px 600px, 80px 80px, 80px 80px'
+              }}></div>
+            </div>
+
+            {/* Premium 3D depth layers */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0d2a42]/80 via-transparent to-[#1a4a6f]/40"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#1a4a6f]/15 to-[#0d2a42]/30"></div>
+
+            {/* Subtle noise texture for premium feel */}
+            <div className="absolute inset-0 bg-[url('/noise.png')] opacity-[0.02] mix-blend-overlay"></div>
           </div>
-          
+
           <div className="container mx-auto max-w-5xl relative z-10">
             <div className="text-center mb-12">
               <h2 className="text-5xl font-playfair font-bold mb-8">
@@ -107,16 +127,16 @@ const Index = () => {
                 </span>
               </h2>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
               <div className="space-y-6">
                 <p className="text-premium-pearl-200 text-lg leading-relaxed">
-                  At Krivetka.am, we are passionate about bringing you the finest seafood from the depths of the ocean. 
+                  At Krivetka.am, we are passionate about bringing you the finest seafood from the depths of the ocean.
                   Our commitment to quality and sustainability sets us apart in the industry.
                 </p>
                 <p className="text-premium-pearl-200 text-lg leading-relaxed">
-                  Each product in our collection is carefully selected and handled with the utmost care to ensure 
-                  you receive nothing but the best. From our sustainable fishing practices to our premium packaging, 
+                  Each product in our collection is carefully selected and handled with the utmost care to ensure
+                  you receive nothing but the best. From our sustainable fishing practices to our premium packaging,
                   every detail matters.
                 </p>
                 <div className="flex items-center gap-4 pt-4">
@@ -126,7 +146,7 @@ const Index = () => {
                   <span className="text-premium-gold-400 font-medium">Sustainably Sourced</span>
                 </div>
               </div>
-              
+
               <div className="bg-gradient-to-br from-premium-onyx-700/50 to-premium-onyx-800/50 p-8 rounded-2xl border border-premium-gold-500/20">
                 <h3 className="text-2xl font-playfair font-bold text-premium-gold-400 mb-4">Our Promise</h3>
                 <ul className="space-y-3">
@@ -151,10 +171,10 @@ const Index = () => {
         {/* Premium Contact Section with enhanced styling */}
         <section id="contact" className="py-24 px-4 relative">
           <div className="absolute inset-0">
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-gray-950/50 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-gray-900/40 to-transparent"></div>
             <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-premium-gold-500/60 to-transparent shadow-lg shadow-premium-gold-500/30"></div>
           </div>
-          
+
           <div className="container mx-auto max-w-5xl relative z-10">
             <div className="text-center mb-16">
               <h2 className="text-5xl font-playfair font-bold mb-6">
@@ -166,7 +186,7 @@ const Index = () => {
                 Experience luxury service that matches our premium products
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="bg-gradient-to-br from-premium-onyx-800/60 to-premium-onyx-900/80 p-10 rounded-2xl border border-premium-gold-500/20 backdrop-blur-md">
                 <h3 className="text-3xl font-playfair font-bold text-premium-gold-400 mb-6">Get in Touch</h3>
@@ -182,7 +202,7 @@ const Index = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="bg-gradient-to-br from-premium-onyx-800/60 to-premium-onyx-900/80 p-10 rounded-2xl border border-premium-gold-500/20 backdrop-blur-md">
                 <h3 className="text-3xl font-playfair font-bold text-premium-gold-400 mb-6">Luxury Service</h3>
                 <div className="space-y-6">
