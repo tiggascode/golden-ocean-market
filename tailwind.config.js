@@ -240,6 +240,82 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			keyframes: {
+				// Optimized fast animations
+				'fast-float': {
+					'0%, 100%': { 
+						transform: 'translate3d(0, 0, 0)',
+					},
+					'50%': { 
+						transform: 'translate3d(0, -8px, 0)',
+					},
+				},
+				'fast-pulse': {
+					'0%, 100%': { 
+						opacity: '0.8',
+						transform: 'scale3d(1, 1, 1)',
+					},
+					'50%': { 
+						opacity: '1',
+						transform: 'scale3d(1.1, 1.1, 1)',
+					},
+				},
+				'lobster-float': {
+					'0%, 100%': {
+						transform: 'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)',
+					},
+					'25%': {
+						transform: 'translate3d(0, -10px, 0) rotateX(3deg) rotateY(5deg) rotateZ(1deg)',
+					},
+					'50%': {
+						transform: 'translate3d(0, -5px, 0) rotateX(-2deg) rotateY(-3deg) rotateZ(-1deg)',
+					},
+					'75%': {
+						transform: 'translate3d(0, -12px, 0) rotateX(4deg) rotateY(-4deg) rotateZ(2deg)',
+					},
+				},
+				'lobster-float-2': {
+					'0%, 100%': {
+						transform: 'translate3d(0, 0, 0) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale3d(1, 1, 1)',
+					},
+					'33%': {
+						transform: 'translate3d(0, -6px, 0) rotateX(-3deg) rotateY(4deg) rotateZ(-1deg) scale3d(1.02, 1.02, 1)',
+					},
+					'66%': {
+						transform: 'translate3d(0, -10px, 0) rotateX(2deg) rotateY(-3deg) rotateZ(1deg) scale3d(0.99, 0.99, 1)',
+					},
+				},
+				'lobster-sway': {
+					'0%': {
+						transform: 'rotateZ(-2deg) rotateY(0deg)',
+					},
+					'100%': {
+						transform: 'rotateZ(2deg) rotateY(5deg)',
+					},
+				},
+				'lobster-sway-2': {
+					'0%': {
+						transform: 'rotateZ(1deg) rotateY(-3deg)',
+					},
+					'100%': {
+						transform: 'rotateZ(-1deg) rotateY(3deg)',
+					},
+				},
+				'bubble-float': {
+					'0%': {
+						transform: 'translate3d(0, 100vh, 0) scale3d(0, 0, 1)',
+						opacity: '0',
+					},
+					'10%': {
+						opacity: '1',
+					},
+					'90%': {
+						opacity: '1',
+					},
+					'100%': {
+						transform: 'translate3d(0, -20vh, 0) scale3d(1, 1, 1)',
+						opacity: '0',
+					},
+				},
 				'float': {
 					'0%, 100%': { transform: 'translateY(0)' },
 					'50%': { transform: 'translateY(-10px)' },
@@ -254,6 +330,14 @@ export default {
 				},
 			},
 			animation: {
+				// Optimized faster animations
+				'fast-float': 'fast-float 3s ease-in-out infinite',
+				'fast-pulse': 'fast-pulse 1.5s ease-in-out infinite',
+				'lobster-float': 'lobster-float 4s ease-in-out infinite',
+				'lobster-float-2': 'lobster-float-2 5s ease-in-out infinite',
+				'lobster-sway': 'lobster-sway 3s ease-in-out infinite alternate',
+				'lobster-sway-2': 'lobster-sway-2 4s ease-in-out infinite alternate-reverse',
+				'bubble-float': 'bubble-float 6s linear infinite',
 				'float': 'float 6s ease-in-out infinite',
 				'fade-in': 'fadeIn 0.5s ease-out'
 			}
